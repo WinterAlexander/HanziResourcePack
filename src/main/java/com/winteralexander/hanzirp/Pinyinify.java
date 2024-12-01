@@ -29,10 +29,13 @@ public class Pinyinify {
 				continue;
 
 			String value = entry.getValue();
-			sb.append(value).append(",");
+			sb.append(value).append("|");
 		}
 		sb.deleteCharAt(sb.length() - 1);
-		String[] res = pinyinify(sb.toString()).split(",");
+		String input = sb.toString();
+		String output = pinyinify(input);
+
+		String[] res = output.split("\\|");
 		int i = 0;
 		for(String key : map.keySet()) {
 			map.put(key, res[i].trim().replaceAll("(\\s|​)+", " "));
