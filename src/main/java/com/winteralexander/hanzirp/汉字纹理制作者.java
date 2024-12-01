@@ -18,11 +18,39 @@ public class 汉字纹理制作者 {
 		graphics.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING,
 				RenderingHints.VALUE_TEXT_ANTIALIAS_LCD_HRGB);
 
-		//graphics.drawImage(background, 0, 0, size, size, (_, _, _, _, _, _) -> false);
+		boolean white = true;
+
+		if(background != null) {
+			graphics.drawImage(background, 0, 0, size, size, (_, _, _, _, _, _) -> false);
+
+			float avgR = 0f;
+			float avgG = 0f;
+			float avgB = 0f;
+
+			for(int i = 0; i < background.getWidth(); i++) {
+				for(int j = 0; j < background.getHeight(); j++) {
+					int color = background.getRGB(i, j);
+					int r = (color >> 8) & 0xFF;
+					int g = (color >> 16) & 0xFF;
+					int b = (color >> 24) & 0xFF;
+					avgR += (float)r / (background.getWidth() * background.getHeight());
+					avgG += (float)g / (background.getWidth() * background.getHeight());
+					avgB += (float)b / (background.getWidth() * background.getHeight());
+				}
+			}
+
+			avgR /= 255f;
+			avgG /= 255f;
+			avgB /= 255f;
+			float gray = 0.299f * avgR + 0.587f * avgG + 0.114f * avgB;
+			white = gray < 0.5f;
+		}
 
 		Font font;
 		FontMetrics metrics;
 		int fontSize = size + 1;
+
+		graphics.setColor(white ? Color.WHITE : Color.BLACK);
 
 		do {
 			fontSize--;
@@ -35,7 +63,7 @@ public class 汉字纹理制作者 {
 			graphics.setFont(font);
 			graphics.drawString(hanzi,
 					size / 2 - metrics.stringWidth(hanzi) / 2,
-					size / 4 + metrics.getHeight() / 2 - metrics.getDescent());
+					size * 3 / 4 + metrics.getHeight() / 2 - metrics.getDescent());
 
 			Font 拼音Font;
 			FontMetrics 拼音Metrics;
@@ -51,7 +79,7 @@ public class 汉字纹理制作者 {
 			graphics.setFont(拼音Font);
 			graphics.drawString(pinyin,
 					size / 2 - 拼音Metrics.stringWidth(pinyin) / 2,
-					size * 3 / 4 + 拼音Metrics.getHeight() / 2 - 拼音Metrics.getDescent());
+					size / 4 + 拼音Metrics.getHeight() / 2 - 拼音Metrics.getDescent());
 		} else {
 			graphics.setFont(font);
 
