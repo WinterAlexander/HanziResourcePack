@@ -44,6 +44,9 @@ public class 汉字纹理制作者 {
 			avgB /= 255f;
 			float gray = 0.299f * avgR + 0.587f * avgG + 0.114f * avgB;
 			white = gray < 0.5f;
+		} else {
+			graphics.setColor(Color.BLACK);
+			graphics.fillRect(0, 0, size, size);
 		}
 
 		Font font;

@@ -50,7 +50,7 @@ public class Main {
 				continue; // skip non square images
 
 			BufferedImage img = 汉字纹理制作者.制作纹理(翻译.get("block.minecraft." + name),
-					拼音.get("block.minecraft." + name),
+					config.includePinyin ? 拼音.get("block.minecraft." + name) : null,
 					config.fontPath,
 					config.textureSize,
 					config.keepTextures ? back : null);
