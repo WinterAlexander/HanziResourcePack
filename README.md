@@ -1,4 +1,4 @@
-#HanziResourcePack
+# HanziResourcePack
 
 **Downloads**: https://github.com/WinterAlexander/HanziResourcePack/releases
 
