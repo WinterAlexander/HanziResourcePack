@@ -11,7 +11,11 @@ import java.awt.image.BufferedImage;
  * @author Alexander Winter
  */
 public class 汉字纹理制作者 {
-	public static BufferedImage 制作纹理(String hanzi, String pinyin, String fontName, int size, BufferedImage background) {
+	public static BufferedImage 制作纹理(String hanzi,
+	                                     String pinyin,
+										 汉字资源包制作者配置 config,
+	                                     BufferedImage background) {
+		int size = config.textureSize;
 		BufferedImage output = new BufferedImage(size, size, BufferedImage.TYPE_4BYTE_ABGR);
 
 		Graphics2D graphics = output.createGraphics();
@@ -54,10 +58,15 @@ public class 汉字纹理制作者 {
 		int fontSize = size + 1;
 
 		graphics.setColor(white ? Color.WHITE : Color.BLACK);
+		Color color = new Color(graphics.getColor().getRed(),
+				graphics.getColor().getBlue(),
+				graphics.getColor().getGreen(),
+				Math.round(config.textOpacity * 255));
+		graphics.setColor(color);
 
 		do {
 			fontSize--;
-			font = new Font(fontName, Font.BOLD, fontSize);
+			font = new Font(config.fontPath, Font.BOLD, fontSize);
 			metrics = graphics.getFontMetrics(font);
 		} while(metrics.getHeight() * (pinyin == null ? 1 : 2) > size
 				|| metrics.stringWidth(hanzi) > size);
@@ -74,7 +83,7 @@ public class 汉字纹理制作者 {
 
 			do {
 				拼音Size--;
-				拼音Font = new Font(fontName, Font.PLAIN, 拼音Size);
+				拼音Font = new Font(config.fontPath, Font.PLAIN, 拼音Size);
 				拼音Metrics = graphics.getFontMetrics(拼音Font);
 			} while(拼音Metrics.getHeight() * 2 > size
 					|| 拼音Metrics.stringWidth(pinyin) > size);

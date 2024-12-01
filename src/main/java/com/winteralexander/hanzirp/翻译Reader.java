@@ -4,19 +4,17 @@ import com.google.gson.FormattingStyle;
 import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.sun.source.tree.Tree;
 
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
 /**
- * TODO Undocumented :(
+ * 读和写翻译JSON文件
  * <p>
  * Created on 2024-11-30.
  *

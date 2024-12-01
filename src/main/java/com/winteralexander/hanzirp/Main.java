@@ -11,7 +11,7 @@ import java.util.Locale;
 import java.util.Map;
 
 /**
- * TODO Undocumented :(
+ * Generator for the pack
  * <p>
  * Created on 2024-11-28.
  *
@@ -51,8 +51,7 @@ public class Main {
 
 			BufferedImage img = 汉字纹理制作者.制作纹理(翻译.get("block.minecraft." + name),
 					config.includePinyin ? 拼音.get("block.minecraft." + name) : null,
-					config.fontPath,
-					config.textureSize,
+					config,
 					config.keepTextures ? back : null);
 
 			File out = new File("out/assets/minecraft/textures/block/" + originalName);

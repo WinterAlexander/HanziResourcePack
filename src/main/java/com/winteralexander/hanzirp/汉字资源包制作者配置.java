@@ -15,4 +15,5 @@ public class 汉字资源包制作者配置 {
 	public boolean includePinyin = true;
 	public boolean keepTextures = true;
 	public int textureSize = 128;
+	public float textOpacity = 1.0f;
 }

@@ -7,7 +7,7 @@ import java.nio.file.Files;
 import java.util.SortedMap;
 
 /**
- * TODO Undocumented :(
+ * Program to convert minecraft chinese translation (json) to pinyin for usage by the main program
  * <p>
  * Created on 2024-11-30.
  *
