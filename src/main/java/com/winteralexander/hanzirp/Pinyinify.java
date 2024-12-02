@@ -23,11 +23,9 @@ public class Pinyinify {
 
 		StringBuilder sb = new StringBuilder();
 
-		for(SortedMap.Entry<String, String> entry : map.entrySet()) {
-			String key = entry.getKey();
-			if(!key.startsWith("block.minecraft"))
-				continue;
+		map.entrySet().removeIf(e -> !e.getKey().startsWith("block.minecraft."));
 
+		for(SortedMap.Entry<String, String> entry : map.entrySet()) {
 			String value = entry.getValue();
 			sb.append(value).append("|");
 		}
