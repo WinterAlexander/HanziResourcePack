@@ -16,6 +16,6 @@ https://github.com/user-attachments/assets/14e8c07f-79b3-4144-8b65-40ef8a7dcfa2
 
 ## Supporting this project
 
-I am a software developper and I do game development on my free time. My focus is generally divided between various projects. If you want this project to receive more attention, feel free to give me a tip. You may include a specific feature you would like to be seen worked on in the tip message. Cheers!
+I am a software developper and I do game development on my free time. My focus is generally divided between various projects. If you want this project to receive more attention, feel free to give me a tip (please specify this project in the tip message!). You may also include a specific feature you would like to be seen worked on in the tip message. Cheers!
 
 https://paypal.me/winter2277
