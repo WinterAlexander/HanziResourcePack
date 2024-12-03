@@ -8,10 +8,14 @@ package com.winteralexander.hanzirp;
  * @author Alexander Winter
  */
 public class 汉字资源包制作者配置 {
+	public String packName = "HanziResourcePack";
+	public int packFormat = 42;
+
 	public String basePackPath = "assets";
 	public String translationPath = "translation/zh_cn.json";
 	public String pinyinPath = "translation/pinyin.json";
 	public String fontPath = "Arial";
+	public String exportFolder = "out/generated-pack";
 	public boolean includePinyin = true;
 	public boolean keepTextures = true;
 	public int textureSize = 128;

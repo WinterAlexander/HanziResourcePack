@@ -19,7 +19,7 @@ public class Pinyinify {
 
 		翻译Reader reader = new 翻译Reader(gson);
 
-		SortedMap<String, String> map = reader.读翻译(new File("in/translation/zh_cn.json"));
+		SortedMap<String, String> map = reader.读翻译(new File("in/translation/zh_tw.json"));
 
 		StringBuilder sb = new StringBuilder();
 
@@ -40,7 +40,7 @@ public class Pinyinify {
 			i++;
 		}
 
-		reader.写翻译(new File("out/pinyin.json"), map);
+		reader.写翻译(new File("out/pinyin_traditional.json"), map);
 	}
 
 	public static String pinyinify(String hanzi) throws Throwable {
